@@ -1,35 +1,39 @@
-import os
 import logging
+import os
+
+import click
 import pandas as pd
 from dotenv import load_dotenv
-import click
-from .dpipe_io_sql_store import DPipeIOSqlStore
+
 from .dpipe_io_source import DPipeIOSrc
+from .dpipe_io_sql_store import DPipeIOSqlStore
 
 # Using a global logger for consistency
 logger = logging.getLogger(__name__)
 
+
 def setup_logging():
-    """
-    Set up the logging configuration.
-    """
+    """Set up the logging configuration."""
     logging.basicConfig(level=logging.INFO)
 
 
 def load_environment_variables():
-    """
-    Load environment variables from the .env file.
+    """Load environment variables from the .env file.
 
     Returns:
     tuple: Database URL and name.
     """
     load_dotenv()
-    return os.getenv('DATABASE_URL'), os.getenv('DATABASE_NAME'), os.getenv('UTEST_GEN_DATA_ROOT')
+    return (
+        os.getenv("DATABASE_URL"),
+        os.getenv("DATABASE_NAME"),
+        os.getenv("UTEST_GEN_DATA_ROOT"),
+    )
 
 
 def standardize_dataframe_structure(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Standardize the structure of the DataFrame by renaming columns and converting datatypes.
+    """Standardize the structure of the DataFrame by renaming columns and
+    converting datatypes.
 
     Args:
         df (pandas.DataFrame): The DataFrame to be standardized.
@@ -42,9 +46,10 @@ def standardize_dataframe_structure(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def process_data_and_update_db(data_source: str, db_table_name: str, db_uri_path: str, desti_path: str):
-    """
-    Process data from the source and update the database.
+def process_data_and_update_db(
+    data_source: str, db_table_name: str, db_uri_path: str, desti_path: str
+):
+    """Process data from the source and update the database.
 
     Args:
         data_source (str): Source of the data.
@@ -68,8 +73,7 @@ def process_data_and_update_db(data_source: str, db_table_name: str, db_uri_path
 @click.option("--data-source", "-ds", default="Invalid", type=str)
 @click.option("--db-table-name", "-dt", default="Invalid", type=str)
 def cli(data_source, db_table_name):
-    """
-    Command Line Interface for running the data pipeline.
+    """Command Line Interface for running the data pipeline.
 
     Args:
         data_source (str): Source of the data.
@@ -80,7 +84,10 @@ def cli(data_source, db_table_name):
     db_url, db_name, desti_path = load_environment_variables()
     db_uri_path = f"{db_url}/{db_name}"
 
-    process_data_and_update_db(data_source, db_table_name, db_uri_path, desti_path)
+    process_data_and_update_db(
+        data_source, db_table_name, db_uri_path, desti_path
+    )
+
 
 if __name__ == "__main__":
     cli()

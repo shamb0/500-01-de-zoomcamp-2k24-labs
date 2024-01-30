@@ -60,6 +60,20 @@ down-mod01-lab01-local-service:
 		--project-directory . \
 		down
 
+apply-py-lint:
+	poetry run flake8
+
+apply-py-fmt:
+	poetry run \
+		docformatter \
+		--in-place \
+		--recursive \
+		--wrap-summaries 79 \
+		--wrap-descriptions 79 \
+		de-zcamp
+	poetry run isort .
+	poetry run black .
+
 run-mod01-lab01-etl01-green-tripdata:
 	@poetry run \
 		01-run-etl-green-tripdata \

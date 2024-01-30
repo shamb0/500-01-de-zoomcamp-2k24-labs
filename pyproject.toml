@@ -18,6 +18,21 @@ numpy = "^1.26.3"
 01-run-etl-green-tripdata = "de-zcamp.10-wkly-labs.01-mod01-prerequisite.cli_01_dpipe_nyc_green_tripdata_to_localdb:cli"
 02-run-etl-zone-lookup = "de-zcamp.10-wkly-labs.01-mod01-prerequisite.cli_02_dpipe_nyc_taxi_zone_lookup_to_localdb:cli"
 
+[tool.poetry.group.dev.dependencies]
+flake8 = "^7.0.0"
+black = {version = "^24.1.1", extras = ["jupyter"]}
+isort = "^5.13.2"
+docformatter = "^1.7.5"
+
+[tool.black]
+line-length = 79
+target-version = ['py310']
+include = '\.pyi?$'
+extend-exclude = '(/.git|/dist|/.venv|/venv|/build|/agent|agbenchmark/challenges)/'
+
+[tool.isort]
+profile = "black"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

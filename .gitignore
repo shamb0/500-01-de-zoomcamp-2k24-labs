@@ -1,0 +1,37 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+.idea
+# C extensions
+*.so
+
+# Environments
+.env
+
+# Artifact Files
+01-test-artifacts/**
+02-test-intermediate/**
+03-sec-vault/*.json
+
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+*.terraform.lock.hcl
+
+
+# Crash log files
+crash.log
+
+# Exclude override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Exclude CLI configuration files
+.terraformrc
+terraform.rc

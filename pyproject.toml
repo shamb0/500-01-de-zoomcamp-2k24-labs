@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "de-zcamp"
+version = "0.1.0"
+description = "Weekly lab work and capstone project submission for the DE Zoomcamp course offered by DataTalksClub."
+authors = ["shamb0 <r.raajey@gmail.com>"]
+readme = "README.md"
+packages = [{include = "de-zcamp"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+click = "^8.1.7"
+pandas = "^2.2.0"
+sqlalchemy = "^2.0.25"
+python-dotenv = "^1.0.1"
+numpy = "^1.26.3"
+
+[tool.poetry.scripts]
+01-run-etl-green-tripdata = "de-zcamp.10-wkly-labs.01-mod01-prerequisite.cli_01_dpipe_nyc_green_tripdata_to_localdb:cli"
+02-run-etl-zone-lookup = "de-zcamp.10-wkly-labs.01-mod01-prerequisite.cli_02_dpipe_nyc_taxi_zone_lookup_to_localdb:cli"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

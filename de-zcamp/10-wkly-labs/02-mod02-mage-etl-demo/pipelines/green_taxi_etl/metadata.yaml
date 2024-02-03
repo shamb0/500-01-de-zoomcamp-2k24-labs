@@ -1,0 +1,92 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - preprocess_green_tripdata
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_green_tripdata_data_2020_Q3
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_green_tripdata_data_2020_q3
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks:
+  - export_to_postgres
+  - export_to_gcs
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: preprocess_green_tripdata
+  retry_config: null
+  status: executed
+  timeout: null
+  type: transformer
+  upstream_blocks:
+  - load_green_tripdata_data_2020_q3
+  uuid: preprocess_green_tripdata
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: export_to_postgres
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - preprocess_green_tripdata
+  uuid: export_to_postgres
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: export_to_gcs
+  retry_config: null
+  status: executed
+  timeout: null
+  type: data_exporter
+  upstream_blocks:
+  - preprocess_green_tripdata
+  uuid: export_to_gcs
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2024-01-31 06:54:05.401938+00:00'
+data_integration: null
+description: null
+executor_config: {}
+executor_count: 1
+executor_type: local_python
+extensions: {}
+name: green_taxi_etl
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags: []
+type: python
+updated_at: '2024-02-03 01:20:54'
+uuid: green_taxi_etl
+variables_dir: /home/popoyi/.mage_data/02-mod02-mage-etl-demo
+widgets: []

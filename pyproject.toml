@@ -10,9 +10,12 @@ packages = [{include = "de-zcamp"}]
 python = "^3.10"
 click = "^8.1.7"
 pandas = "^2.2.0"
-sqlalchemy = "^2.0.25"
+sqlalchemy = "^1.4.15"
 python-dotenv = "^1.0.1"
 numpy = "^1.26.3"
+prettytable = "^3.9.0"
+google-cloud-storage = "^2.14.0"
+google-cloud-bigquery = "^3.17.1"
 
 [tool.poetry.scripts]
 01-run-etl-green-tripdata = "de-zcamp.10-wkly-labs.01-mod01-prerequisite.cli_01_dpipe_nyc_green_tripdata_to_localdb:cli"
@@ -23,6 +26,7 @@ flake8 = "^7.0.0"
 black = {version = "^24.1.1", extras = ["jupyter"]}
 isort = "^5.13.2"
 docformatter = "^1.7.5"
+mage-ai = "^0.9.61"
 
 [tool.black]
 line-length = 79

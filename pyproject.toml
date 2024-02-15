@@ -20,6 +20,7 @@ google-cloud-bigquery = "^3.17.1"
 [tool.poetry.scripts]
 01-run-etl-green-tripdata = "de-zcamp.10-wkly-labs.01-mod01-prerequisite.cli_01_dpipe_nyc_green_tripdata_to_localdb:cli"
 02-run-etl-zone-lookup = "de-zcamp.10-wkly-labs.01-mod01-prerequisite.cli_02_dpipe_nyc_taxi_zone_lookup_to_localdb:cli"
+03-01-run-etl-green-tripdata-bucket = "de-zcamp.10-wkly-labs.03-mod03-data-warehouse.cli_01_etl_extract_nyc_2022_green_tlc_trip_record_data_parquet_to_bucket:cli"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^7.0.0"

@@ -97,3 +97,18 @@ run-mod01-lab01-etl04-zone-lookup:
 		02-run-etl-zone-lookup \
 		-ds $(MOD01_LAB01_ETL04_CFG_SOURCE_FILE) \
 		-dt $(MOD01_LAB01_ETL04_CFG_DEST_TABLE)
+
+run-mod03-lab01-etl01-el-tripdata-local:
+	@poetry run \
+		03-01-run-etl-green-tripdata-bucket \
+		--color green \
+		--year 2022 \
+		--month Jan
+
+run-mod03-lab01-etl02-el-tripdata-gcs:
+	@poetry run \
+		03-01-run-etl-green-tripdata-bucket \
+		--color green \
+		--year 2022 \
+		--bucket-id shamb0_zcamp_2024_hcl_demo_v1_bucket
+		
